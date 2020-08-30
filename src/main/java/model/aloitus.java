@@ -24,21 +24,23 @@ public class aloitus {
 		//update();
 		//remove();
 		query();
+		uusiVaraus();
 		
-		Tavara tavara = new Tavara();
-		tavara.setNimi("SUP-lauta");
-		tavara.setKuvaus("Kevyt suppilauta.");
-		entityManager.persist(tavara);
-		Varaus uusiVaraus = new Varaus();
-		uusiVaraus.setVaraaja("Jokunen");
-		Date date = new Date();
-		uusiVaraus.setPvm(date);
-		uusiVaraus.setTavara(tavara);
-		uusiVaraus.setLisatieto("Kesäpäivän suppailuun...");
-		entityManager.persist(uusiVaraus);
 
 		end();
 
+	}
+	
+	private static void uusiVaraus() {
+		Integer primaryKey = 5;
+		Tavara tavara = entityManager.find(Tavara.class, primaryKey);
+		Varaus uusiVaraus = new Varaus();
+		uusiVaraus.setVaraaja("Risto");
+		Date date = new Date();
+		uusiVaraus.setPvm(date);
+		uusiVaraus.setTavara(tavara);
+		uusiVaraus.setLisatieto("Lenkki Humlassa");
+		entityManager.persist(uusiVaraus);
 	}
 	
 	private static void remove() {
