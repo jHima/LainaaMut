@@ -37,4 +37,8 @@ public class Tavara {
 		this.kuvaus = kuvaus;
 	}
 
+
+	
+	
+
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,9 +22,20 @@ public class aloitus {
 		//create();
 		//find();
 		//update();
-		remove();
+		//remove();
 		query();
 		
+		Tavara tavara = new Tavara();
+		tavara.setNimi("SUP-lauta");
+		tavara.setKuvaus("Kevyt suppilauta.");
+		entityManager.persist(tavara);
+		Varaus uusiVaraus = new Varaus();
+		uusiVaraus.setVaraaja("Jokunen");
+		Date date = new Date();
+		uusiVaraus.setPvm(date);
+		uusiVaraus.setTavara(tavara);
+		uusiVaraus.setLisatieto("Kesäpäivän suppailuun...");
+		entityManager.persist(uusiVaraus);
 
 		end();
 
