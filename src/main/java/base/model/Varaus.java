@@ -1,7 +1,8 @@
-package model;
+package base.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,9 +22,13 @@ public class Varaus {
 	private Tavara tavara;
 	
 
-
+	@Column(nullable = false)
 	private String varaaja;
+	
+	@Column
 	private Date pvm;
+	
+	@Column
 	private String lisatieto;
 
 

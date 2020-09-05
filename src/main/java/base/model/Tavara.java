@@ -1,5 +1,6 @@
-package model;
+package base.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,12 +8,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Tavara {
-	private Integer idtavara;
-	private String nimi;
-	private String kuvaus;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idtavara;
+	
+	@Column
+	private String nimi;
+	
+	@Column
+	private String kuvaus;
+
+	
 	public Integer getIdtavara() {
 		return idtavara;
 	}

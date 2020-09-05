@@ -1,4 +1,4 @@
-package model;
+package base.model;
 
 import java.util.Date;
 import java.util.List;
@@ -19,12 +19,12 @@ public class aloitus {
 	public static void main(String[] args) {
 		begin();
 
-		//create();
+		create();
 		//find();
 		//update();
 		//remove();
-		query();
-		uusiVaraus();
+		//query();
+		//uusiVaraus();
 		
 
 		end();
