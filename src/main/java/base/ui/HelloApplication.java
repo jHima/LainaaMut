@@ -16,7 +16,7 @@ public class HelloApplication extends WebApplication {
 	@Override
 	public Class<? extends Page> getHomePage() {
 		// TODO Auto-generated method stub
-		return Hello.class;
+		return Index.class;
 	}
 
 }
