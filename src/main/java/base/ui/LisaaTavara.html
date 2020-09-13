@@ -7,14 +7,20 @@
 <body>
 	<h1>Täällä voit lisätä tavaran varattavaksi</h1>
 
-	<form action="/action_page.php">
-		<label for="tavaraNimi">Tavara:</label><br> <input type="text"
-			id="tavaraNimi" name="tavaraNimi" value="Tavaran nimi"><br>
-		<label for="tavaraKuvaus">Kuvaus:</label><br> <textarea style="width:200px; height:600px;"
-			id="tavaraKuvaus" name="tavaraKuvaus" value="kuvaus tavarasta">Kuvaus ja lisätietoa tavarasta </textarea> <br>
-		<br> <input type="submit" wicket:id="lisaaTavara"
-			value="Lisää tavara">
-	</form>
+	<form id="tavaraForm" method="get" wicket:id="tavaraForm">
+  			<fieldset>
+    			<legend style="color: #F90">Lisää Tavara</legend>
+    				<p wicket:id="loginStatus"></p>
+    				<span>Tavaran nimi: </span><input wicket:id="tavaraNimi" type="text" id="tavaraNimi" /><br/>
+    				<br>
+    				<span>Kuvaus: </span><input wicket:id="tavaraKuvaus" type="text" id="tavaraKuvaus" />
+    				<p>
+    					<input type="submit" name="lisaaTavara" value="Lisää tavara"/>
+    				</p>
+  	   	    </fieldset>
+		</form>
+	<br> <input type="submit" wicket:id="kaikkiTavarat"
+			value="Kaikki tavarat">
 	<br>
 	<br>
 

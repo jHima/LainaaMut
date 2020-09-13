@@ -38,13 +38,16 @@ public class Tavarat extends WebPage {
 				Tavara t = item.getModelObject();
 				item.add(new Label("label", t.getNimi()));
 				item.add(new Label("a", Integer.toString(number)));
-				item.add(new BookmarkablePageLink<>("varaaTavara", Hello.class));
+				BookmarkablePageLink<Void> tavaraSivu = new BookmarkablePageLink<>("tavaraSivu", TavaraSivu.class);
+		        tavaraSivu.getPageParameters().add("idTavara", t.getIdtavara());
+		        item.add(tavaraSivu);
+				
 				number++;
 			}
 		});
 		
 		add(new BookmarkablePageLink<>("lisaaTavara", LisaaTavara.class));
-		
+		add(new BookmarkablePageLink<>("kaikkiVaraukset", Varaukset.class));
 	}
 
 }

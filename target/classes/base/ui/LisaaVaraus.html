@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>LainaaMut - tee varaus</title>
+</head>
+<body>
+	<h1>Täällä voit tehdä varauksen</h1>
+
+	<form id="varausForm" method="get" wicket:id="varausForm">
+  			<fieldset>
+    			<legend style="color: #F90">Tee Varaus</legend>
+    		
+    				<p wicket:id="loginStatus"></p>
+    				<span>Tavaran nimi: </span><input wicket:id="varaaja" type="text" id="varaaja" /><br/>
+    				<br>
+    				<span>Kuvaus: </span><input wicket:id="lisatieto" type="text" id="lisatieto" />
+    				<p>
+    					<input type="submit" name="lisaaVaraus" value="Tee varaus"/>
+    				</p>
+  	   	    </fieldset>
+		</form>
+	<br> <input type="submit" wicket:id="kaikkiVaraukset"
+			value="Kaikki varaukset">
+	<br>
+	<br>
+
+	<br />
+
+
+
+
+
+</body>
+</html>

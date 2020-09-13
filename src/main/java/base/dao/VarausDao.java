@@ -9,36 +9,39 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import base.model.Tavara;
+
+import base.model.Varaus;
+
+
 
 @Repository
-public class TavaraDao {
+public class VarausDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public void saveItem(Tavara newItem) {
-		
-		try(Session session = sessionFactory.openSession()) {
+
+	public void saveVaraus(Varaus newVaraus) {
+
+		try (Session session = sessionFactory.openSession()) {
 			Transaction tx = session.beginTransaction();
 			try {
-				session.save(newItem);
+				session.save(newVaraus);
 				tx.commit();
-			
-			} catch(Exception e) {
+
+			} catch (Exception e) {
 				e.printStackTrace();
 				tx.rollback();
 			}
 		}
-		
+
 	}
 	
-	public List<Tavara> findItems() {
-		List<Tavara> kaikki = new ArrayList<>();
+	public List<Varaus> findVaraukset() {
+		List<Varaus> kaikki = new ArrayList<>();
 		try(Session session = sessionFactory.openSession()) {
 			
 			try {
-				kaikki.addAll(session.createQuery("from Tavara").list()) ;
+				kaikki.addAll(session.createQuery("from Varaus").list()) ;
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -50,12 +53,12 @@ public class TavaraDao {
 		
 	}
 	
-	public Tavara findItem(int id) {
-		Tavara tavara = new Tavara();
+	public List<Varaus> tavaranVaraukset(int id) {
+		List<Varaus> kaikki = new ArrayList<>();
 		try(Session session = sessionFactory.openSession()) {
 			
 			try {
-				tavara = session.find(Tavara.class, id);
+				kaikki.addAll(session.createQuery("from Varaus where tavaraid is id").list()) ;
 			
 			} catch(Exception e) {
 				e.printStackTrace();
@@ -63,9 +66,8 @@ public class TavaraDao {
 			}
 		}
 		
-		return tavara;
+		return kaikki;
 		
 	}
-	
 
 }
