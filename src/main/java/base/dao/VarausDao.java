@@ -1,14 +1,16 @@
 package base.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 
 import base.model.Varaus;
 
@@ -67,6 +69,27 @@ public class VarausDao {
 		}
 		
 		return kaikki;
+		
+	}
+	
+	public Integer tavaranVarauksetPaivalle(int id, Date paiva) {
+		List<Varaus> kaikki = new ArrayList<>();
+		try(Session session = sessionFactory.openSession()) {
+			
+			try {
+				String hql = "from Varaus where tavaraid = :id and pvm = :pvm";
+				Query query = session.createQuery(hql);
+				query.setParameter("id", id);
+				query.setParameter("pvm", paiva);
+				kaikki.addAll(query.list());
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return kaikki.size();
 		
 	}
 

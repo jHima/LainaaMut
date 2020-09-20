@@ -44,7 +44,7 @@ public class Varaukset extends WebPage{
 			}
 		});
 		
-		add(new BookmarkablePageLink<>("lisaaVaraus", LisaaVaraus.class));
+		add(new BookmarkablePageLink<>("etusivulle", Index.class));
 	}
 
 }

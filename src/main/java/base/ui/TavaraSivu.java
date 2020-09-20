@@ -17,7 +17,11 @@ public class TavaraSivu extends WebPage {
 	private VarausDao varausDao;
 	private Tavara tavara;
 	
+
+	
 	public TavaraSivu(PageParameters parameters) {
+		
+		
 		String id = parameters.get("idTavara").toOptionalString();
 		Integer idTavara = Integer.valueOf(id);
 		
@@ -26,7 +30,13 @@ public class TavaraSivu extends WebPage {
 		add(new Label("tavaranNimi", t.getNimi() ));
 		add(new Label("tavaranKuvaus", t.getKuvaus() ));
 		
+		add(new VarausForm("varausForm", t));
+		
+
+		
 		add(new BookmarkablePageLink<>("lisaaVaraus", LisaaVaraus.class));
+		
+
 
 		
 		

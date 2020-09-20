@@ -15,8 +15,26 @@
 		<span wicket:id="tavaranKuvaus"></span>
 		
 
-
+<br>
 	<br>
+	<form id="varausForm" method="get" wicket:id="varausForm">
+  			<fieldset>
+    			<legend style="color: #F90">Tee Varaus</legend>
+    		
+    				<p wicket:id="loginStatus"></p>
+    				<p wicket:id="tavaranNimi"></p>
+    				<p wicket:id="tavaraNro"></p>
+    				<span>Varaajan nimi: </span><input wicket:id="varaaja" type="text" id="varaaja" /><br/>
+    				<br> <!-- -->
+    				<span>Päivä: </span><input wicket:id="paiva" type="date" id="paiva" /><br/>
+    				<br> 
+    				<span>Lisätieto: </span><input wicket:id="lisatieto" type="text" id="lisatieto" />
+    				<p>
+    					<input type="submit" name="lisaaVaraus" value="Tee varaus"/>
+    				</p>
+  	   	    </fieldset>
+		</form>
+
 	
 	<br>
 	<input type="submit" wicket:id="lisaaVaraus" value="Tee Varaus"><br />
