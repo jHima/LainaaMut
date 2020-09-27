@@ -3,22 +3,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>LainaaMut</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<wicket:link>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+    
+    </wicket:link>
 </head>
-<body style="background-color:powderblue;">
+<body style="background-color: powderblue;">
 
-<div id="header" wicket:id="header">header</div>
+	<div id="header" wicket:id="header">header</div>
 	<h1>Moi!!</h1>
-	
-	<h3 style="border:2px solid blue;">Tervetuloa varaamaan tavaroita</h3>
-	
-	<img alt="items" style="width:48px; height:48px;" wicket:id = "image4"/>
-	
+
+	<span wicket:id="simpleLabel"></span>
+
+	<h3 style="border: 2px solid blue;">Tervetuloa varaamaan tavaroita</h3>
+
+	<img alt="items" style="width: 48px; height: 48px;" wicket:id="image4" />
+
 	<!-- muotoilut ei toimi-->
-	
+
 	<br>
 
-	<input class="favorite styled" type="button" wicket:id="tavaroihinNappula"
-		value="Katso tavarat">
+	<input class="favorite styled" type="button"
+		wicket:id="tavaroihinNappula" value="Katso tavarat">
 
 
 
