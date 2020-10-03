@@ -2,6 +2,7 @@ package base.ui;
 
 import java.util.List;
 
+import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
@@ -19,7 +20,11 @@ public class Tavarat extends WebPage {
 	@SpringBean
 	private TavaraDao dao;
 	
+	private Component header;
+	
 	public Tavarat() {
+		
+		add(header = new Header("header"));
 		
 		List<Tavara> tavarat = dao.findItems();
 		OmaLista uusiLista = new OmaLista();

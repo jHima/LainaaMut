@@ -2,6 +2,7 @@ package base.ui;
 
 import java.util.List;
 
+import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
@@ -18,7 +19,11 @@ public class Varaukset extends WebPage{
 	@SpringBean
 	private VarausDao dao;
 	
+	private Component header;
+	
 	public Varaukset() {
+		
+		add(header = new Header("header"));
 		
 		List<Varaus> varaukset = dao.findVaraukset();
 		OmaLista uusiLista = new OmaLista();
