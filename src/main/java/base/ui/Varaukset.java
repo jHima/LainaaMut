@@ -44,7 +44,7 @@ public class Varaukset extends WebPage{
 				item.add(new Label("varaaja", t.getVaraaja()));
 				item.add(new Label("tavara", t.getTavara().getNimi()));
 				item.add(new Label("lisatieto", t.getLisatieto()));
-				item.add(new Label("a", Integer.toString(number)));
+				item.add(new Label("nro", Integer.toString(number)));
 				number++;
 			}
 		});

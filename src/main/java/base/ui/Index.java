@@ -30,7 +30,7 @@ public class Index extends WebPage {
 		
 		//label.add(new AttributeModifier("style", "color:red"));
 		
-		add(new Image("image4", new Model<>("urheiluvalineet.jpeg")));
+
 		
 
 		add(new BookmarkablePageLink<>("tavaroihinNappula", Tavarat.class));

@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/style.css">
 <title>LainaaMut - varaukset</title>
 </head>
 <body>
@@ -11,15 +12,14 @@
 
 	<h3>Täällä näet kaikki varaukset</h3>
 
-	<span wicket:id="listview"> <span wicket:id="a"> </span> <span
+	<span wicket:id="listview"> <span wicket:id="nro"> </span> <span
 		wicket:id="tavara">label</span> <span wicket:id="paiva">label</span> <span
 		wicket:id="varaaja">label</span> <span wicket:id="lisatieto">label</span><br />
 	</span>
-	<!-- 
-	<span wicket:id="esimerkki"> </span>
-	-->
+
 	<br>
-	<input type="submit" wicket:id="etusivulle" value="Etusivulle">
+	<input class="button" type="submit" wicket:id="etusivulle"
+		value="Etusivulle">
 	<br />
 
 

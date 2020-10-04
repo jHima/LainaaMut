@@ -60,7 +60,10 @@ public class VarausDao {
 		try(Session session = sessionFactory.openSession()) {
 			
 			try {
-				kaikki.addAll(session.createQuery("from Varaus where tavaraid is id").list()) ;
+				String hql = "from Varaus where tavaraid = :id";
+				Query query = session.createQuery(hql);
+				query.setParameter("id", id);
+				kaikki.addAll(query.list());
 			
 			} catch(Exception e) {
 				e.printStackTrace();

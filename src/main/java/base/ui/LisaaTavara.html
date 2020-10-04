@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
 <title>LainaaMut - lisää tavara</title>
 </head>
 <body>
@@ -11,17 +14,17 @@
 
 	<form id="tavaraForm" method="get" wicket:id="tavaraForm">
   			<fieldset>
-    			<legend style="color: #F90">Lisää Tavara</legend>
+    			<legend>Lisää Tavara</legend>
     				<p wicket:id="loginStatus"></p>
     				<span>Tavaran nimi: </span><input wicket:id="tavaraNimi" type="text" id="tavaraNimi" /><br/>
     				<br>
     				<span>Kuvaus: </span><input wicket:id="tavaraKuvaus" type="text" id="tavaraKuvaus" />
     				<p>
-    					<input type="submit" name="lisaaTavara" value="Lisää tavara"/>
+    					<input class="button" type="submit" name="lisaaTavara" value="Lisää tavara"/>
     				</p>
   	   	    </fieldset>
 		</form>
-	<br> <input type="submit" wicket:id="kaikkiTavarat"
+	<br> <input class="button" type="submit" wicket:id="kaikkiTavarat"
 			value="Kaikki tavarat">
 	<br>
 	<br>
