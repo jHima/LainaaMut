@@ -17,12 +17,10 @@ import base.model.Tavara;
 
 public class Index extends WebPage {
 	
-	private Component header;
 
 	public Index() {
 		
-		
-		add(header = new Header("header"));
+		add(new Header("header"));
 		
 		add(new Label("simpleLabel", "Tekstiä tässä"));
 		

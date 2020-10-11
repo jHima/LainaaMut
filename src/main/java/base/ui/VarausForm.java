@@ -32,7 +32,6 @@ public class VarausForm extends Form {
 	
 	@SpringBean
 	private VarausDao dao;
-	private TavaraDao tavaraDao;
 
 	
 	public VarausForm(String id, Tavara t) {

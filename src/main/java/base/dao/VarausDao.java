@@ -75,6 +75,27 @@ public class VarausDao {
 		
 	}
 	
+	public List<Varaus> tavaranTulevatVaraukset(int id) {
+		List<Varaus> kaikki = new ArrayList<>();
+		try(Session session = sessionFactory.openSession()) {
+			
+			try {
+				String hql = "from Varaus where tavaraid = :id and pvm > :pvm";
+				Query query = session.createQuery(hql);
+				query.setParameter("id", id);
+				query.setParameter("pvm", new Date());
+				kaikki.addAll(query.list());
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return kaikki;
+		
+	}
+	
 	public Integer tavaranVarauksetPaivalle(int id, Date paiva) {
 		List<Varaus> kaikki = new ArrayList<>();
 		try(Session session = sessionFactory.openSession()) {
