@@ -13,6 +13,8 @@ public class Header extends Panel {
 		add(new BookmarkablePageLink<>("tavaroihinNappula", Tavarat.class));
 		
 		add(new BookmarkablePageLink<>("varauksiinNappula", Varaukset.class));
+		
+		add(new BookmarkablePageLink<>("kirjauduNappula", SignInPage.class));
 	}
 
 }

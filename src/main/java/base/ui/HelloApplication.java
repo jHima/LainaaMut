@@ -14,7 +14,7 @@ public class HelloApplication extends WebApplication {
 	protected void init() {
 		super.init();
 		getComponentInstantiationListeners().add(new SpringComponentInjector(this));
-		getCspSettings().blocking().disabled();
+		//getCspSettings().blocking().disabled();
 
 		
 		//mihin application viittaa??		

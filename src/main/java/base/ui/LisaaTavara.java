@@ -1,11 +1,12 @@
 package base.ui;
 
 import org.apache.wicket.Component;
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+@AuthorizeInstantiation("ADMIN")
 public class LisaaTavara extends WebPage {
 	
 	private Component header;

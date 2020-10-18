@@ -38,23 +38,35 @@ public class TavaraSivu extends WebPage {
 		
 		final List<Varaus> varaukset = varausDao.tavaranTulevatVaraukset(idTavara);
 		
-		if (varaukset.isEmpty()) {
-			add(new Label("eiVarauksia", t.getNimi() + "ei varauksia."));
-		} else {
-			
-			add(new ListView<Varaus>("varauksetList", varaukset) {
+		add(new ListView<Varaus>("varauksetList", varaukset) {
 
-				@Override
-				protected void populateItem(ListItem<Varaus> item) {
-					final Varaus varaus = item.getModelObject();
-					item.add(new Label("paiva", varaus.getPvm()));
-					item.add(new Label("varaaja", varaus.getVaraaja()));
-					item.add(new Label("lisatieto", varaus.getLisatieto()));
-					
-				}
-			});
-			
-		}
+			@Override
+			protected void populateItem(ListItem<Varaus> item) {
+				final Varaus varaus = item.getModelObject();
+				item.add(new Label("paiva", varaus.getPvm()));
+				item.add(new Label("varaaja", varaus.getVaraaja()));
+				item.add(new Label("lisatieto", varaus.getLisatieto()));
+				
+			}
+		});
+		
+//		if (varaukset.isEmpty()) {
+//			add(new Label("eiVarauksia", t.getNimi() + "ei varauksia."));
+//		} else {
+//			
+//			add(new ListView<Varaus>("varauksetList", varaukset) {
+//
+//				@Override
+//				protected void populateItem(ListItem<Varaus> item) {
+//					final Varaus varaus = item.getModelObject();
+//					item.add(new Label("paiva", varaus.getPvm()));
+//					item.add(new Label("varaaja", varaus.getVaraaja()));
+//					item.add(new Label("lisatieto", varaus.getLisatieto()));
+//					
+//				}
+//			});
+//			
+//		}
 		
 		
 		
