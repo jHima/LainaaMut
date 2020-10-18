@@ -44,8 +44,8 @@ public class TavaraSivu extends WebPage {
 			protected void populateItem(ListItem<Varaus> item) {
 				final Varaus varaus = item.getModelObject();
 				item.add(new Label("paiva", varaus.getPvm()));
-				item.add(new Label("varaaja", varaus.getVaraaja()));
 				item.add(new Label("lisatieto", varaus.getLisatieto()));
+				item.add(new Label("varaaja", varaus.getKayttaja().getNimi()));
 				
 			}
 		});

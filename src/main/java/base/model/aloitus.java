@@ -35,7 +35,7 @@ public class aloitus {
 		Integer primaryKey = 5;
 		Tavara tavara = entityManager.find(Tavara.class, primaryKey);
 		Varaus uusiVaraus = new Varaus();
-		uusiVaraus.setVaraaja("Risto");
+		//uusiVaraus.setVaraaja("Risto");
 		Date date = new Date();
 		uusiVaraus.setPvm(date);
 		uusiVaraus.setTavara(tavara);

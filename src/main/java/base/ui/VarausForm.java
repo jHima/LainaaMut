@@ -17,6 +17,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.hibernate.Session;
 
+import base.model.Kayttaja;
 import base.model.Tavara;
 import base.dao.TavaraDao;
 import base.dao.VarausDao;
@@ -29,6 +30,7 @@ public class VarausForm extends Form {
 	private String loginStatus;
 	private Date paiva;
 	private Tavara tavara;
+	private Kayttaja kayttaja;
 	
 	@SpringBean
 	private VarausDao dao;
@@ -44,19 +46,20 @@ public class VarausForm extends Form {
 		add(new Label("tavaranNimi", t.getNimi()));
 		add(new Label("tavaraNro", t.getIdtavara()));
 
-		add(new TextField("varaaja"));
 		add(new TextField("lisatieto"));
 		add(new DateTextField("paiva", "yyyy-MM-dd"));
-		
-		add(new Label("loginStatus"));
+
 	}
 	
 
 	@Override
 	public final void onSubmit() {		
+		Kayttaja nyt = new Kayttaja();
+		nyt.setNimi("joku");
+		nyt.setSalasana("joku");
 		
 		Varaus uusiVaraus = new Varaus();
-		uusiVaraus.setVaraaja(varaaja);
+		uusiVaraus.setKayttaja(null);
 		uusiVaraus.setLisatieto(lisatieto);
 		uusiVaraus.setPvm(paiva);
 		uusiVaraus.setTavara(tavara);
@@ -70,12 +73,7 @@ public class VarausForm extends Form {
 			System.out.println((dao.tavaranVarauksetPaivalle(tavara.getIdtavara(), paiva)));
 		}
 
-		
-		
-		if(varaaja.equals("test") && lisatieto.equals("test"))
-			loginStatus = "pöö";
-		else
-			loginStatus = "ei pöö";			
+				
 	}
 	
 

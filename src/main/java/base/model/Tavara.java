@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Tavara {
@@ -13,8 +15,12 @@ public class Tavara {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idtavara;
 	
-	@Column
+	@Column (nullable = false)
 	private String nimi;
+	
+	@ManyToOne
+	@JoinColumn(name = "kayttajaid")
+	private Kayttaja kayttaja;
 	
 	@Column
 	private String kuvaus;
@@ -34,6 +40,14 @@ public class Tavara {
 
 	public void setNimi(String nimi) {
 		this.nimi = nimi;
+	}
+
+	public Kayttaja getKayttaja() {
+		return kayttaja;
+	}
+
+	public void setKayttaja(Kayttaja kayttaja) {
+		this.kayttaja = kayttaja;
 	}
 
 	public String getKuvaus() {

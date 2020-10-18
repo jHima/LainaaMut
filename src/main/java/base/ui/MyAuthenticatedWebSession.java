@@ -6,7 +6,7 @@ import org.apache.wicket.request.Request;
 
 public class MyAuthenticatedWebSession extends AuthenticatedWebSession
 {
-    private static final String USERNAME_PASSWORD = "wicket";
+    private static final String USERNAME_PASSWORD = "testi";
 
     /**
      * Construct.
@@ -20,14 +20,16 @@ public class MyAuthenticatedWebSession extends AuthenticatedWebSession
     }
 
     @Override
-    public boolean authenticate(final String username, final String password)
+    public boolean authenticate(String username, String password)
     {
+    	
         return USERNAME_PASSWORD.equals(username) && USERNAME_PASSWORD.equals(password);
     }
 
     @Override
     public Roles getRoles()
     {
+    	
         if (isSignedIn())
         {
             // If the user is signed in, they have these roles

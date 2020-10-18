@@ -41,7 +41,7 @@ public class Varaukset extends WebPage{
 			protected void populateItem(ListItem<Varaus> item) {
 				Varaus t = item.getModelObject();
 				item.add(new Label("paiva", t.getPvm()));
-				item.add(new Label("varaaja", t.getVaraaja()));
+				item.add(new Label("varaaja", t.getKayttaja().getNimi()));
 				item.add(new Label("tavara", t.getTavara().getNimi()));
 				item.add(new Label("lisatieto", t.getLisatieto()));
 				item.add(new Label("nro", Integer.toString(number)));

@@ -21,9 +21,9 @@ public class Varaus {
 	@JoinColumn(name = "tavaraid")
 	private Tavara tavara;
 	
-
-	@Column(nullable = false)
-	private String varaaja;
+	@ManyToOne
+	@JoinColumn(name = "kayttajaid")
+	private Kayttaja kayttaja;
 	
 	@Column
 	private Date pvm;
@@ -48,12 +48,12 @@ public class Varaus {
 		this.tavara = tavara;
 	}
 
-	public String getVaraaja() {
-		return varaaja;
+	public Kayttaja getKayttaja() {
+		return kayttaja;
 	}
 
-	public void setVaraaja(String varaaja) {
-		this.varaaja = varaaja;
+	public void setKayttaja(Kayttaja kayttaja) {
+		this.kayttaja = kayttaja;
 	}
 
 	public Date getPvm() {
