@@ -7,6 +7,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
@@ -46,7 +47,7 @@ public class Tavarat extends WebPage {
 				BookmarkablePageLink<Void> tavaraSivu = new BookmarkablePageLink<>("tavaraSivu", TavaraSivu.class);
 		        tavaraSivu.getPageParameters().add("idTavara", t.getIdtavara());
 		        item.add(tavaraSivu);
-				
+		        
 				number++;
 			}
 		});

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
@@ -33,6 +34,26 @@ public class TavaraSivu extends WebPage {
 
 		add(new Label("tavaranNimi", t.getNimi() ));
 		add(new Label("tavaranKuvaus", t.getKuvaus() ));
+		
+		final Link<Void> poistaTavara = new Link<Void>("poistaTavara")
+        {
+            public void onClick()
+            {
+                tavaraDao.deleteItem(t.getIdtavara());
+                setResponsePage(Tavarat.class);
+            }
+        };
+		add(poistaTavara);
+		
+//		final Link<Void> muokkaaTavara = new Link<Void>("muokkaaTavara")
+//        {
+//            public void onClick()
+//            {
+//            	add(new muokkaaTavaraaForm("muokkaaTavaraaForm", t));
+//            }
+//        };
+//		add(muokkaaTavara);
+		
 		
 		add(new VarausForm("varausForm", t));
 		
@@ -68,7 +89,7 @@ public class TavaraSivu extends WebPage {
 //			
 //		}
 		
-		
+		add(new muokkaaTavaraaForm("muokkaaTavaraaForm", t));
 		
 		add(new BookmarkablePageLink<>("kaikkiVaraukset", Varaukset.class));
 		

@@ -25,7 +25,6 @@ import base.model.Varaus;
 
 public class VarausForm extends Form {
 	
-	private String varaaja;
 	private String lisatieto;
 	private String loginStatus;
 	private Date paiva;
@@ -57,12 +56,16 @@ public class VarausForm extends Form {
 		Kayttaja nyt = new Kayttaja();
 		nyt.setNimi("joku");
 		nyt.setSalasana("joku");
+		int user = 1;
+		
 		
 		Varaus uusiVaraus = new Varaus();
-		uusiVaraus.setKayttaja(null);
+		uusiVaraus.setKayttaja(nyt);
 		uusiVaraus.setLisatieto(lisatieto);
 		uusiVaraus.setPvm(paiva);
 		uusiVaraus.setTavara(tavara);
+		
+		setResponsePage(Varaukset.class);
 		
 		if(dao.tavaranVarauksetPaivalle(tavara.getIdtavara(), paiva) == 0) {
 			dao.saveVaraus(uusiVaraus);

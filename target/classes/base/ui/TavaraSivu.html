@@ -9,54 +9,76 @@
 </head>
 <body>
 
-<div id="header" wicket:id="header">header</div>
+	<div id="header" wicket:id="header">header</div>
 	<h1>Valitsemasi tavaran tiedot</h1>
-	
-	<h3>T‰‰ll‰ n‰et tiedot valitsemastasi tavarasta ja voit tehd‰ varauksia</h3>
 
-		<span wicket:id="tavaranNimi"> </span> <br>
+	<h3>T‰‰ll‰ n‰et tiedot valitsemastasi tavarasta ja voit tehd‰
+		varauksia</h3>
 
-		<br>
-		<span wicket:id="tavaranKuvaus"></span>
-		
+	<span wicket:id="tavaranNimi"> </span>
+	<br>
 
-<br>
+	<br>
+	<span wicket:id="tavaranKuvaus"></span>
+	<br>
+	<input class="button" type="submit" wicket:id="poistaTavara"
+		value="Poista">
+
+
+	<br>
 	<br>
 	<form id="varausForm" method="get" wicket:id="varausForm">
-  			<fieldset>
-    			<legend>Tee Varaus</legend>
-    		
-    				
-    				<p wicket:id="tavaranNimi"></p>
-    				<p wicket:id="tavaraNro"></p>
-    				
-    				<br> <!-- -->
-    				<span>P‰iv‰: </span><input wicket:id="paiva" type="date" id="paiva" /><br/>
-    				<br> 
-    				<span>Lis‰tieto: </span><input wicket:id="lisatieto" type="text" id="lisatieto" />
-    				<p>
-    					<input class="button" type="submit" name="lisaaVaraus" value="Tee varaus"/>
-    				</p>
-  	   	    </fieldset>
-		</form>
+		<fieldset>
+			<legend>Tee Varaus</legend>
 
-	
+
+			<p wicket:id="tavaranNimi"></p>
+			<p wicket:id="tavaraNro"></p>
+
+			<br>
+			<!-- -->
+			<span>P‰iv‰: </span><input wicket:id="paiva" type="date" id="paiva" /><br />
+			<br> <span>Lis‰tieto: </span><input wicket:id="lisatieto"
+				type="text" id="lisatieto" />
+			<p>
+				<input class="button" type="submit" name="lisaaVaraus"
+					value="Tee varaus" />
+			</p>
+		</fieldset>
+	</form>
+
+
 	<br>
-		
+
 	<div>
 		<h3>Tavaran tulevat varaukset:</h3>
-		
-<!-- 		<div wicket:id= "eiVarauksia"></div> -->
-		
+
+		<!-- 		<div wicket:id= "eiVarauksia"></div> -->
+
 		<div wicket:id="varauksetList">
-			<span wicket:id="paiva">paivam‰‰r‰</span>
-			<span wicket:id="varaaja">varaaja</span>
+			<span wicket:id="paiva">paivam‰‰r‰</span> <span wicket:id="varaaja">varaaja</span>
 			<span wicket:id="lisatieto">lis‰tieto</span>
 		</div>
 	</div>
 	
-	
-	<input class="button" type="submit" wicket:id="kaikkiVaraukset" value="Kaikki varaukset"><br />
+	<br>
+
+	<form id="muokkaaTavaraaForm" method="post" wicket:id="muokkaaTavaraaForm">
+		<fieldset>
+			<legend>Muokkaa</legend>
+			<p wicket:id="kuvaus"></p>
+			<span>Uusi kuvaus: </span><input wicket:id="uusiKuvaus" type="text"
+				id="uusiKuvaus" />
+			<p>
+				<input class="button" type="submit" name="muokkaa"
+					value="Muokkaa" />
+			</p>
+		</fieldset>
+	</form>
+
+	<input class="button" type="submit" wicket:id="kaikkiVaraukset"
+		value="Kaikki varaukset">
+	<br />
 
 
 
