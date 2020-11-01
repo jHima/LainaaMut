@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -66,6 +67,29 @@ public class TavaraDao {
 		return tavara;
 
 	}
+	
+	public List<Tavara> findKayttajanItems() {
+		List<Tavara> kayttajanTavarat = new ArrayList<>();
+		try (Session session = sessionFactory.openSession()) {
+
+			try {
+				String hql = "from Tavara where kayttajaid = :nro";
+				Query query = session.createQuery(hql);
+				query.setParameter("nro", 1);
+				kayttajanTavarat.addAll(query.list());
+
+
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+
+		return kayttajanTavarat;
+
+	}
+	
+	
 
 	public void deleteItem(int id) {
 
