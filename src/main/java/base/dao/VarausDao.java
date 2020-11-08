@@ -34,6 +34,8 @@ public class VarausDao {
 				e.printStackTrace();
 				tx.rollback();
 			}
+		
+
 		}
 
 	}

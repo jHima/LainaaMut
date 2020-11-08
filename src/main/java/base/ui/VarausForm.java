@@ -19,6 +19,7 @@ import org.hibernate.Session;
 
 import base.model.Kayttaja;
 import base.model.Tavara;
+import base.dao.KayttajaDao;
 import base.dao.TavaraDao;
 import base.dao.VarausDao;
 import base.model.Varaus;
@@ -33,6 +34,10 @@ public class VarausForm extends Form {
 	
 	@SpringBean
 	private VarausDao dao;
+	
+	@SpringBean
+	private KayttajaDao kayttajaDao;
+	
 
 	
 	public VarausForm(String id, Tavara t) {
@@ -53,11 +58,8 @@ public class VarausForm extends Form {
 
 	@Override
 	public final void onSubmit() {		
-		Kayttaja nyt = new Kayttaja();
-		nyt.setNimi("joku");
-		nyt.setSalasana("joku");
-		int user = 1;
-		
+		Kayttaja nyt = kayttajaDao.getKayttaja(1);
+
 		
 		Varaus uusiVaraus = new Varaus();
 		uusiVaraus.setKayttaja(nyt);
