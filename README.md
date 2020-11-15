@@ -17,6 +17,7 @@ Add items you own and make reservations on friends items.
 - update item
 - update reservation
 - delete reservation
+- private groups
 
 ### Technologies Used
 - Java
