@@ -3,6 +3,7 @@ package base.ui;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
@@ -25,7 +26,8 @@ public class muokkaaTavaraaForm extends Form {
 		setDefaultModel(new CompoundPropertyModel(this));
 		String kuvaus = t.getKuvaus();
 		add(new Label("kuvaus", kuvaus));
-		add(new TextField("uusiKuvaus"));
+		add(new TextField("uusiKuvaus").setRequired(true));
+		add(new FeedbackPanel("feedback2"));
 
 	}
 	

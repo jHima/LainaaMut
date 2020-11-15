@@ -41,6 +41,7 @@
 			<br> <span>Lisätieto: </span><input wicket:id="lisatieto"
 				type="text" id="lisatieto" />
 			<p>
+			<div wicket:id="feedback"></div>
 				<input class="button" type="submit" name="lisaaVaraus"
 					value="Tee varaus" />
 			</p>
@@ -53,7 +54,7 @@
 	<div>
 		<h3>Tavaran tulevat varaukset:</h3>
 
-		<!-- 		<div wicket:id= "eiVarauksia"></div> -->
+				<p wicket:id= "eiVarauksia"></p>
 
 		<div wicket:id="varauksetList">
 			<span wicket:id="paiva">paivamäärä</span> <span wicket:id="varaaja">varaaja</span>
@@ -70,6 +71,7 @@
 			<span>Uusi kuvaus: </span><input wicket:id="uusiKuvaus" type="text"
 				id="uusiKuvaus" />
 			<p>
+			<div wicket:id="feedback2"></div>
 				<input class="button" type="submit" name="muokkaa"
 					value="Muokkaa" />
 			</p>

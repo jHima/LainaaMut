@@ -18,12 +18,12 @@ import base.model.Tavara;
 import base.model.Varaus;
 
 public class TavaraSivu extends WebPage {
-	
+
 	@SpringBean
 	private TavaraDao tavaraDao;
 	@SpringBean
 	private VarausDao varausDao;
-	
+
 	public TavaraSivu(PageParameters parameters) {
 		add(new Header("header"));
 		
@@ -57,7 +57,17 @@ public class TavaraSivu extends WebPage {
 		
 		add(new VarausForm("varausForm", t));
 		
+
+		
 		final List<Varaus> varaukset = varausDao.tavaranTulevatVaraukset(idTavara);
+		
+		add(new Label("eiVarauksia", "Ei tulevia varauksia.") {
+			
+			@Override
+			public boolean isVisible() {
+				return varaukset.isEmpty();
+			}
+		});
 		
 		add(new ListView<Varaus>("varauksetList", varaukset) {
 
@@ -95,5 +105,4 @@ public class TavaraSivu extends WebPage {
 		
 	}
 
-	
 }

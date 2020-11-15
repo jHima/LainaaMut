@@ -3,8 +3,10 @@ package base.ui;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.validator.StringValidator;
 
 import base.dao.TavaraDao;
 import base.model.Tavara;
@@ -22,8 +24,10 @@ public class TavaraForm extends Form {
 		super(id);
 		setDefaultModel(new CompoundPropertyModel(this));
 		
-		add(new TextField("tavaraNimi"));
-		add(new TextField("tavaraKuvaus"));
+		add(new TextField("tavaraNimi").setRequired(true));
+		add(new TextField("tavaraKuvaus").setRequired(true));
+		
+		add(new FeedbackPanel("feedback"));
 		add(new Label("loginStatus"));
 	}
 	

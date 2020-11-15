@@ -11,6 +11,7 @@ import org.apache.wicket.extensions.markup.html.form.DateTextField;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -50,8 +51,10 @@ public class VarausForm extends Form {
 		add(new Label("tavaranNimi", t.getNimi()));
 		add(new Label("tavaraNro", t.getIdtavara()));
 
-		add(new TextField("lisatieto"));
-		add(new DateTextField("paiva", "yyyy-MM-dd"));
+		add(new TextField("lisatieto").setRequired(true));
+		add(new DateTextField("paiva", "yyyy-MM-dd").setRequired(true));
+		
+		add(new FeedbackPanel("feedback"));
 
 	}
 	
