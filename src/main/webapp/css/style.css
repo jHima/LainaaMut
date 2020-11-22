@@ -165,6 +165,21 @@ tr {
 	background-color: yellow;
 }
 
+.tavara {
+	border: 1px solid red;
+	padding: 10%;
+	margin: 10%;
+	color: pink;
+	width: 25%;
+}
+
+
+.tavaraNimi {
+	border: 2px;
+	background-color: black;
+	color: white;
+}
+
 td {
 	background-color: black;
 	color: white;

@@ -28,22 +28,15 @@ public class Tavarat extends WebPage {
 		add(header = new Header("header"));
 		
 		List<Tavara> tavarat = dao.findItems();
-		OmaLista uusiLista = new OmaLista();
-		uusiLista.addAll(tavarat);
 		
-		Model<Integer> modeli = new Model<Integer>();
-		Model<OmaLista<Tavara>> tavaraModeli = new Model<OmaLista<Tavara>>();
-		tavaraModeli.setObject(uusiLista);
-		
-		//add(new Label("esimerkki", modeli));
-		
-		add(new ListView<Tavara>("listview", tavaraModeli) {
+		add(new ListView<Tavara>("tavaratList", tavarat) {
 			int number = 1;
 			@Override
 			protected void populateItem(ListItem<Tavara> item) {
 				Tavara t = item.getModelObject();
-				item.add(new Label("label", t.getNimi()));
-				item.add(new Label("a", Integer.toString(number)));
+				item.add(new Label("tavaraNimi", t.getNimi()));
+				item.add(new Label("nro", Integer.toString(number)));
+				item.add(new Label("tavaraKuvaus", t.getKuvaus()));
 				BookmarkablePageLink<Void> tavaraSivu = new BookmarkablePageLink<>("tavaraSivu", TavaraSivu.class);
 		        tavaraSivu.getPageParameters().add("idTavara", t.getIdtavara());
 		        item.add(tavaraSivu);
