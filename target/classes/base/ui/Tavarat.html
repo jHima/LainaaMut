@@ -9,19 +9,22 @@
 </head>
 <body>
 
-	<div id="header" wicket:id="header">header</div>
+
+		
+
+	<div id="header" wicket:id="header">header</div> 
 	<h1>Listaus kaikista tavaroista</h1>
 
 	<h3>Tervetuloa varaamaan tavaroita.</h3>
 
 	<div wicket:id="tavaratList">
-		<div class="tavara col-3">
-		<span wicket:id="nro"> </span> 
+		<div class="card col-6">
+<!-- 		<span wicket:id="nro"> </span>  -->
 		<div class="tavaraNimi">
-		<h4 wicket:id="tavaraNimi">label</h4> </div>
+		<h2 wicket:id="tavaraNimi">label</h2> </div>
 		<p wicket:id="tavaraKuvaus"></p>
-		<input class="button" type="submit" wicket:id="tavaraSivu"
-			value="Tavara">
+		<p><button wicket:id="tavaraSivu">Tavara</button></p>
+		
 			
 		</div>
 	</div>

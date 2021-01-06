@@ -1,31 +1,59 @@
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="ISO-8859-1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="css/style.css">
 <style>
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	opacity: 0.7;
+}
 </style>
+
 </head>
 <body>
 	<div class="header">
 		<wicket:panel>
-<!-- 			<table class="menu"> -->
-<!-- 				<tbody> -->
-			<ul>
+			<!-- 			<table class="menu"> -->
+			<!-- 				<tbody> -->
+			<ul
+				style="list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333; position: fixed; top: 0; width: 100%;">
 
-				<li class="col-6"><a href="#" class="logo" type="button"
-					wicket:id="etusivulle">LainaaMut!</a><br /></li>
-				<li class="col-2"><a href="#" class="headerButton"
+				<li class="col-6" style="float: left;"><a
+					style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;"
+					href="#" wicket:id="etusivulle">LainaaMut!</a><br /></li>
+				<li class="col-2" style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;"href="#"
 					wicket:id="tavaroihinNappula" value="Tavarat">Tavarat</a></li>
-				<li class="col-2"><a href="#" class="headerButton"
-					type="button" wicket:id="varauksiinNappula">K√§ytt√§j√§</a></li>
+				<li class="col-2" style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#"
+					wicket:id="varauksiinNappula">K‰ytt‰j‰</a></li>
 				<!-- 							<td class= "col-2"><input class="headerButton" type="button" -->
 				<!-- 							wicket:id="KayttajaNappula" value="Kayttaja"></td> -->
-				<li class="col-2"><a href="#" class="headerButton"
-					type="button" wicket:id="kirjauduNappula">Kirjaudu</a></li>
+				<li class="col-2" style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#"
+					wicket:id="kirjauduNappula">Kirjaudu</a></li>
 			</ul>
 			<!-- 				</tbody> -->
 			<!-- 			</table> -->

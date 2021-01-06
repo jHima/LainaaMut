@@ -13,6 +13,8 @@ import base.model.Tavara;
 public class muokkaaTavaraaForm extends Form {
 	//private String tavaraNimi;
 	private String uusiKuvaus;
+	
+	//@SpringBean
 	private Tavara tavara;
 	
 	@SpringBean
@@ -32,6 +34,7 @@ public class muokkaaTavaraaForm extends Form {
 	}
 	
 	public final void onSubmit(Tavara t) {	
+		System.out.println("höpölöpö");
 		dao.muokkaaItem(t.getIdtavara(), uusiKuvaus);
 		setResponsePage(Tavarat.class);
 	}

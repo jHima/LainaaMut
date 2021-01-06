@@ -35,6 +35,7 @@ public class TavaraForm extends Form {
 		Tavara uusiTavara = new Tavara();
 		uusiTavara.setNimi(tavaraNimi);
 		uusiTavara.setKuvaus(tavaraKuvaus);
+		setResponsePage(Tavarat.class);
 		
 		dao.saveItem(uusiTavara);
 		if(tavaraNimi.equals("test") && tavaraKuvaus.equals("test"))

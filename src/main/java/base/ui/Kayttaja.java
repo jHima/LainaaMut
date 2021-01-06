@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -32,7 +33,9 @@ public class Kayttaja extends WebPage {
 			protected void populateItem(ListItem<Tavara> item) {
 				final Tavara tavara = item.getModelObject();
 				item.add(new Label("tavaraNimi", tavara.getNimi()));
-				item.add(new Label("tavaraKuvaus", tavara.getKuvaus()));
+				BookmarkablePageLink<Void> tavaraSivu = new BookmarkablePageLink<>("tavaraSivu", MyItemPage.class);
+		        tavaraSivu.getPageParameters().add("idTavara", tavara.getIdtavara());
+		        item.add(tavaraSivu);
 
 				
 			}

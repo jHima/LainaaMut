@@ -35,7 +35,7 @@ public class Tavarat extends WebPage {
 			protected void populateItem(ListItem<Tavara> item) {
 				Tavara t = item.getModelObject();
 				item.add(new Label("tavaraNimi", t.getNimi()));
-				item.add(new Label("nro", Integer.toString(number)));
+//				item.add(new Label("nro", Integer.toString(number)));
 				item.add(new Label("tavaraKuvaus", t.getKuvaus()));
 				BookmarkablePageLink<Void> tavaraSivu = new BookmarkablePageLink<>("tavaraSivu", TavaraSivu.class);
 		        tavaraSivu.getPageParameters().add("idTavara", t.getIdtavara());

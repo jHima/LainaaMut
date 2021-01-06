@@ -15,14 +15,12 @@
 	<h3>T‰‰ll‰ n‰et tiedot valitsemastasi tavarasta ja voit tehd‰
 		varauksia</h3>
 
-	<span wicket:id="tavaranNimi"> </span>
+	<h2 wicket:id="tavaranNimi"> </h2>
 	<br>
 
 	<br>
 	<span wicket:id="tavaranKuvaus"></span>
-	<br>
-	<input class="button" type="submit" wicket:id="poistaTavara"
-		value="Poista">
+
 
 
 	<br>
@@ -64,19 +62,7 @@
 	
 	<br>
 
-	<form id="muokkaaTavaraaForm" method="post" wicket:id="muokkaaTavaraaForm">
-		<fieldset>
-			<legend>Muokkaa</legend>
-			<p wicket:id="kuvaus"></p>
-			<span>Uusi kuvaus: </span><input wicket:id="uusiKuvaus" type="text"
-				id="uusiKuvaus" />
-			<p>
-			<div wicket:id="feedback2"></div>
-				<input class="button" type="submit" name="muokkaa"
-					value="Muokkaa" />
-			</p>
-		</fieldset>
-	</form>
+	
 
 	<input class="button" type="submit" wicket:id="kaikkiVaraukset"
 		value="Kaikki varaukset">

@@ -110,24 +110,43 @@ public class TavaraDao {
 
 	}
 	
-	public void muokkaaItem(int id, String kuvaus) {
+	public void muokkaaItem(Integer id, String kuvaus) {
 
 		try (Session session = sessionFactory.openSession()) {
 			Transaction tx = session.beginTransaction();
 			try {
-				String hqlUpdate = "update Tavara set kuvaus = :newKuvaus where idtavara = :idTavara";
-				int updatedEntities = session.createQuery( hqlUpdate )
-						.setParameter("newKuvaus", kuvaus)
-				        .setParameter( "idTavara", id )
-				        .executeUpdate();
-						tx.commit();
+				Tavara t = session.get(Tavara.class, id);
+				session.evict(t);
+				t.setKuvaus(kuvaus);
+				session.update(t);
+				tx.commit();
+				System.out.println("Updated User ->");
 			} catch (Exception e) {
+				System.out.println("höpö");
 				e.printStackTrace();
 				tx.rollback();
 			}
-			
 		}
-
 	}
+	
+//	public void muokkaaItem(int id, String kuvaus) {
+//
+//		try (Session session = sessionFactory.openSession()) {
+//			Transaction tx = session.beginTransaction();
+//			try {
+//				String hqlUpdate = "update Tavara set kuvaus = :newKuvaus where idtavara = :idTavara";
+//				int updatedEntities = session.createQuery( hqlUpdate )
+//						.setParameter("newKuvaus", kuvaus)
+//				        .setParameter( "idTavara", id )
+//				        .executeUpdate();
+//						tx.commit();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				tx.rollback();
+//			}
+//			
+//		}
+//
+//	}
 
 }

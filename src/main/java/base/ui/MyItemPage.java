@@ -17,14 +17,14 @@ import base.dao.VarausDao;
 import base.model.Tavara;
 import base.model.Varaus;
 
-public class TavaraSivu extends WebPage {
+public class MyItemPage extends WebPage {
 
 	@SpringBean
 	private TavaraDao tavaraDao;
 	@SpringBean
 	private VarausDao varausDao;
 
-	public TavaraSivu(PageParameters parameters) {
+	public MyItemPage(PageParameters parameters) {
 		add(new Header("header"));
 		
 		String id = parameters.get("idTavara").toOptionalString();
@@ -35,7 +35,15 @@ public class TavaraSivu extends WebPage {
 		add(new Label("tavaranNimi", t.getNimi() ));
 		add(new Label("tavaranKuvaus", t.getKuvaus() ));
 		
-
+		final Link<Void> poistaTavara = new Link<Void>("poistaTavara")
+        {
+            public void onClick()
+            {
+                tavaraDao.deleteItem(t.getIdtavara());
+                setResponsePage(Tavarat.class);
+            }
+        };
+		add(poistaTavara);
 		
 //		final Link<Void> muokkaaTavara = new Link<Void>("muokkaaTavara")
 //        {
@@ -91,7 +99,7 @@ public class TavaraSivu extends WebPage {
 //			
 //		}
 		
-
+		add(new muokkaaTavaraaForm("muokkaaTavaraaForm", t));
 		
 		add(new BookmarkablePageLink<>("kaikkiVaraukset", Varaukset.class));
 		
