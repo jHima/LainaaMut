@@ -10,7 +10,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import base.dao.TavaraDao;
 import base.model.Tavara;
 
-public class muokkaaTavaraaForm extends Form {
+public class MuokkaaTavaraaForm extends Form {
 	//private String tavaraNimi;
 	private String uusiKuvaus;
 	
@@ -22,9 +22,10 @@ public class muokkaaTavaraaForm extends Form {
 	
 	//int id = tavara.getIdtavara();
 	
-	public muokkaaTavaraaForm(String id, Tavara t) {
+	
+	public MuokkaaTavaraaForm(String id, Tavara t) {
 		super(id);
-		
+		tavara = t;
 		setDefaultModel(new CompoundPropertyModel(this));
 		String kuvaus = t.getKuvaus();
 		add(new Label("kuvaus", kuvaus));
@@ -33,9 +34,10 @@ public class muokkaaTavaraaForm extends Form {
 
 	}
 	
-	public final void onSubmit(Tavara t) {	
+	@Override
+	public final void onSubmit() {	
 		System.out.println("höpölöpö");
-		dao.muokkaaItem(t.getIdtavara(), uusiKuvaus);
+		dao.muokkaaItem(tavara.getIdtavara(), uusiKuvaus);
 		setResponsePage(Tavarat.class);
 	}
 

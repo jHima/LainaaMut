@@ -5,17 +5,22 @@ import org.apache.wicket.authroles.authentication.AbstractAuthenticatedWebSessio
 import org.apache.wicket.authroles.authentication.AuthenticatedWebApplication;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class HelloApplication extends AuthenticatedWebApplication {
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(HelloApplication.class);
 	// This is the place to have application wide configurations
 	@Override
 	protected void init() {
+		
 		super.init();
 		getComponentInstantiationListeners().add(new SpringComponentInjector(this));
 		getCspSettings().blocking().disabled();
 		getDebugSettings().setDevelopmentUtilitiesEnabled(true);
+		
+		LOGGER.debug("Kirjotan tähän jotain :)");
 
 		
 		//mihin application viittaa??		

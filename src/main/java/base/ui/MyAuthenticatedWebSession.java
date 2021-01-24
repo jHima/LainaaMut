@@ -2,39 +2,37 @@ package base.ui;
 
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
+import org.apache.wicket.injection.Injector;
 import org.apache.wicket.request.Request;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
-public class MyAuthenticatedWebSession extends AuthenticatedWebSession
-{
-    private static final String USERNAME_PASSWORD = "testi";
+import base.dao.KayttajaDao;
 
-    /**
-     * Construct.
-     * 
-     * @param request
-     *            The current request object
-     */
-    public MyAuthenticatedWebSession(Request request)
-    {
-        super(request);
-    }
+public class MyAuthenticatedWebSession extends AuthenticatedWebSession {
 
-    @Override
-    public boolean authenticate(String username, String password)
-    {
-    	
-        return USERNAME_PASSWORD.equals(username) && USERNAME_PASSWORD.equals(password);
-    }
+	@SpringBean(name = "kayttajaDao")
+	private KayttajaDao kayttajaDao;
 
-    @Override
-    public Roles getRoles()
-    {
-    	
-        if (isSignedIn())
-        {
-            // If the user is signed in, they have these roles
-            return new Roles(Roles.ADMIN);
-        }
-        return null;
-    }
+	
+	public MyAuthenticatedWebSession(Request request) {
+		super(request);
+		Injector.get().inject(this);
+	}
+
+	@Override
+	public boolean authenticate(String username, String password) {
+		
+
+		return kayttajaDao.tarkistaSalasana(username, password);
+	}
+
+	@Override
+	public Roles getRoles() {
+
+		if (isSignedIn()) {
+			// If the user is signed in, they have these roles
+			return new Roles(Roles.ADMIN);
+		}
+		return null;
+	}
 }

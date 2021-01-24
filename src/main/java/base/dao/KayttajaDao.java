@@ -20,21 +20,27 @@ public class KayttajaDao {
 	private SessionFactory sessionFactory;
 
 	public boolean tarkistaSalasana(String nimi, String salasana) {
+		Kayttaja tarkistettuKayttaja = null; 
 		try (Session session = sessionFactory.openSession()) {
 
 			try {
 				String hql = "from Kayttaja where nimi = :nimi and salasana = :salasana";
-				Query query = session.createQuery(hql);
+				Query<Kayttaja> query = session.createQuery(hql);
 				query.setParameter("nimi", nimi);
 				query.setParameter("salasana", salasana);
+				tarkistettuKayttaja = query.uniqueResult();
 
 			} catch (Exception e) {
 				e.printStackTrace();
 
 			}
 		}
-
-		return true;
+		if(tarkistettuKayttaja == null) {
+			return false;
+		} else {
+			return true;
+		}
+		
 	}
 
 	public Kayttaja getKayttaja(int id) {

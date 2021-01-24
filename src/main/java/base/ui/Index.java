@@ -12,11 +12,13 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import base.model.Tavara;
 
 public class Index extends WebPage {
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(Index.class);
 
 	public Index() {
 		
@@ -32,6 +34,8 @@ public class Index extends WebPage {
 		
 
 		add(new BookmarkablePageLink<>("tavaroihinNappula", Tavarat.class));
+		
+		LOGGER.debug("Kirjotan tähän jotain :)");
 	}
 
 }

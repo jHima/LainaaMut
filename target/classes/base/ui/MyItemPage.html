@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<title>LainaaMut - oman tavaran tiedot</title>
+</head>
+<body>
+
+	<div id="header" wicket:id="header">header</div>
+	<h1>Valitsemasi oman tavaran tiedot</h1>
+
+	<h3>Täällä näet tiedot valitsemastasi tavarasta ja voit muokata tavarasi tietoja</h3>
+
+	<span wicket:id="tavaranNimi"> </span>
+	<br>
+
+	<br>
+	<span wicket:id="tavaranKuvaus"></span>
+	<br>
+	<input class="button" type="submit" wicket:id="poistaTavara"
+		value="Poista">
+
+
+	<br>
+	<br>
+	<form id="varausForm" method="get" wicket:id="varausForm">
+		<fieldset>
+			<legend>Tee Varaus</legend>
+
+
+			<p wicket:id="tavaranNimi"></p>
+			<p wicket:id="tavaraNro"></p>
+
+			<br>
+			<!-- -->
+			<span>Päivä: </span><input wicket:id="paiva" type="date" id="paiva" /><br />
+			<br> <span>Lisätieto: </span><input wicket:id="lisatieto"
+				type="text" id="lisatieto" />
+			<p>
+			<div wicket:id="feedback"></div>
+				<input class="button" type="submit" name="lisaaVaraus"
+					value="Tee varaus" />
+			</p>
+		</fieldset>
+	</form>
+
+
+	<br>
+
+	<div>
+		<h3>Tavaran tulevat varaukset:</h3>
+
+				<p wicket:id= "eiVarauksia"></p>
+
+		<div wicket:id="varauksetList">
+			<span wicket:id="paiva">paivamäärä</span> <span wicket:id="varaaja">varaaja</span>
+			<span wicket:id="lisatieto">lisätieto</span>
+		</div>
+	</div>
+	
+	<br>
+
+	<form id="muokkaaTavaraaForm" method="post" wicket:id="muokkaaTavaraaForm">
+		<fieldset>
+			<legend>Muokkaa</legend>
+			<p wicket:id="kuvaus"></p>
+			<span>Uusi kuvaus: </span><input wicket:id="uusiKuvaus" type="text"
+				id="uusiKuvaus" />
+			<p>
+			<div wicket:id="feedback2"></div>
+				<input class="button" type="submit" name="muokkaa"
+					value="Muokkaa" />
+			</p>
+		</fieldset>
+	</form>
+
+	<input class="button" type="submit" wicket:id="kaikkiVaraukset"
+		value="Kaikki varaukset">
+	<br />
+
+
+
+
+</body>
+</html>

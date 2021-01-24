@@ -31,6 +31,7 @@ public class TavaraForm extends Form {
 		add(new Label("loginStatus"));
 	}
 	
+	@Override
 	public final void onSubmit() {	
 		Tavara uusiTavara = new Tavara();
 		uusiTavara.setNimi(tavaraNimi);

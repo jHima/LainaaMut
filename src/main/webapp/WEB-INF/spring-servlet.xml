@@ -61,6 +61,8 @@
 		<property name="name" value="Jutta" />
 		<property name="alias" value="Juttah" />
 	</bean>
+	
+	<bean id="kayttajaDao" class="base.dao.KayttajaDao" />
 
 	<!--
 	<bean id="tavaraDao" class="dao.TavaraDao"/>
