@@ -26,9 +26,14 @@
     <logger name="base" level="debug" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
+    
+    <logger name="org.hibernate.SQL" level="DEBUG" />
+    
+    <logger name="org.hibernate.type.descriptor.sql" level="TRACE" />
 
     <root level="error">
         <appender-ref ref="FILE-ROLLING"/>
     </root>
+    
 
 </configuration>

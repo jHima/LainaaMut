@@ -99,7 +99,7 @@ public class MyItemPage extends WebPage {
 //			
 //		}
 		
-		add(new muokkaaTavaraaForm("muokkaaTavaraaForm", t));
+		add(new MuokkaaTavaraaForm("muokkaaTavaraaForm", t));
 		
 		add(new BookmarkablePageLink<>("kaikkiVaraukset", Varaukset.class));
 		
