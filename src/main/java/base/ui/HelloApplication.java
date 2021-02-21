@@ -8,6 +8,8 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import base.ui.session.MyAuthenticatedWebSession;
+
 
 public class HelloApplication extends AuthenticatedWebApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HelloApplication.class);

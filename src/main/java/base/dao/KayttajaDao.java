@@ -21,6 +21,7 @@ public class KayttajaDao {
 
 	public boolean tarkistaSalasana(String nimi, String salasana) {
 		Kayttaja tarkistettuKayttaja = null; 
+		Integer id;
 		try (Session session = sessionFactory.openSession()) {
 
 			try {
@@ -29,6 +30,7 @@ public class KayttajaDao {
 				query.setParameter("nimi", nimi);
 				query.setParameter("salasana", salasana);
 				tarkistettuKayttaja = query.uniqueResult();
+				id = tarkistettuKayttaja.getIdkayttaja();
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -42,6 +44,8 @@ public class KayttajaDao {
 		}
 		
 	}
+	
+
 
 	public Kayttaja getKayttaja(int id) {
 		Kayttaja kayttaja = new Kayttaja();
@@ -62,6 +66,27 @@ public class KayttajaDao {
 		kayttaja = kaikki.get(0);
 
 		return kayttaja;
+	}
+	
+	public Integer getId(String nimi) {
+		Kayttaja kayttaja = new Kayttaja();
+		List<Kayttaja> kaikki = new ArrayList<>();
+		try (Session session = sessionFactory.openSession()) {
+
+			try {
+				String hql = "from Kayttaja where nimi = :nimi";
+				Query query = session.createQuery(hql);
+				query.setParameter("nimi", nimi);
+				kaikki.addAll(query.list());
+
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		kayttaja = kaikki.get(0);
+
+		return kayttaja.getIdkayttaja();
 	}
 
 }

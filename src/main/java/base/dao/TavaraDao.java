@@ -3,6 +3,7 @@ package base.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,9 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import base.model.Tavara;
+import base.model.Kayttaja;
+import base.ui.session.MyAuthenticatedWebSession;
 
 @Repository
 public class TavaraDao {
+	
+	@SpringBean
+	private KayttajaDao kayttajaDao;
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -68,14 +74,14 @@ public class TavaraDao {
 
 	}
 	
-	public List<Tavara> findKayttajanItems() {
+	public List<Tavara> findKayttajanItems(int id) {
 		List<Tavara> kayttajanTavarat = new ArrayList<>();
 		try (Session session = sessionFactory.openSession()) {
 
 			try {
-				String hql = "from Tavara where kayttajaid = :nro";
+				String hql = "from Tavara where kayttajaid = :id";
 				Query query = session.createQuery(hql);
-				query.setParameter("nro", 1);
+				query.setParameter("id", id);
 				kayttajanTavarat.addAll(query.list());
 
 

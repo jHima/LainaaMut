@@ -13,6 +13,7 @@ import base.dao.TavaraDao;
 import base.dao.VarausDao;
 import base.model.Tavara;
 import base.model.Varaus;
+import base.ui.session.MyAuthenticatedWebSession;
 
 public class Kayttaja extends WebPage {
 	
@@ -25,7 +26,7 @@ public class Kayttaja extends WebPage {
 		add(new Header("header"));
 		
 		
-		final List<Tavara> kayttajanTavarat = tavaraDao.findKayttajanItems();
+		final List<Tavara> kayttajanTavarat = tavaraDao.findKayttajanItems(MyAuthenticatedWebSession.get().getUserId());
 		
 		add(new ListView<Tavara>("kayttajanTavaratList", kayttajanTavarat) {
 
@@ -40,6 +41,8 @@ public class Kayttaja extends WebPage {
 				
 			}
 		});
+		
+		//add(new BookmarkablePageLink<>("signOut", SignOutPage.class));
 		
 	}
 	

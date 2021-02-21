@@ -1,5 +1,6 @@
-package base.ui;
+package base.ui.session;
 
+import org.apache.wicket.Session;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.injection.Injector;
@@ -12,18 +13,31 @@ public class MyAuthenticatedWebSession extends AuthenticatedWebSession {
 
 	@SpringBean(name = "kayttajaDao")
 	private KayttajaDao kayttajaDao;
+	
+	private String username;
+	private Integer userId;
 
 	
 	public MyAuthenticatedWebSession(Request request) {
 		super(request);
 		Injector.get().inject(this);
 	}
+	
+	public static MyAuthenticatedWebSession get() {
+		return (MyAuthenticatedWebSession) Session.get();
+	}
 
 	@Override
-	public boolean authenticate(String username, String password) {
+	public boolean authenticate(String checkusername, String password) {
+		boolean authenticated = false;
 		
+		if (kayttajaDao.tarkistaSalasana(checkusername, password)) {
+			username = checkusername;
+			userId = kayttajaDao.getId(username);
+			authenticated = true;
+		}
 
-		return kayttajaDao.tarkistaSalasana(username, password);
+		return authenticated;
 	}
 
 	@Override
@@ -35,4 +49,13 @@ public class MyAuthenticatedWebSession extends AuthenticatedWebSession {
 		}
 		return null;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public Integer getUserId() {
+		return userId;
+	}
+	
 }

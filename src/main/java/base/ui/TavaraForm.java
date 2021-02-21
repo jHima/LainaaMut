@@ -39,10 +39,7 @@ public class TavaraForm extends Form {
 		setResponsePage(Tavarat.class);
 		
 		dao.saveItem(uusiTavara);
-		if(tavaraNimi.equals("test") && tavaraKuvaus.equals("test"))
-			loginStatus = "Congratulations!";
-		else
-			loginStatus = "Wrong username or password !";			
+				
 	}
 
 }

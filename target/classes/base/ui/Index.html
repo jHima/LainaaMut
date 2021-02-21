@@ -18,6 +18,7 @@
 <body>
 
 	<div id="header" wicket:id="header">header</div>
+
 	<img alt="items"
 		src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60">
 	<div class="row">
@@ -28,7 +29,8 @@
 		<!-- 25% -->
 		<div class="col-9">
 			<h1>Moikkuli!!</h1>
-			<p>Tervetuloa varaamaan tavaroita!!! Toivottavasti löydät sivuilta hyödyllisä tavaroita.</p>
+			<p>Tervetuloa varaamaan tavaroita!!! Toivottavasti löydät
+				sivuilta hyödyllisä tavaroita.</p>
 		</div>
 		<!-- 75% -->
 	</div>
@@ -44,6 +46,11 @@
 
 	<input class="button" type="button" wicket:id="tavaroihinNappula"
 		value="Katso tavarat">
+
+	<p wicket:id="kirjautunut"></p>
+
+	<input class="button" type="button" wicket:id="signOut"
+		value="Kirjaudu ulos">
 
 
 
