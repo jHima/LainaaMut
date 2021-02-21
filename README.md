@@ -11,10 +11,11 @@ Add items you own and make reservations on friends items.
 - list reservations for item
 - list all reservations
 - delete item
-
-### In development
 - log-in
 - update item
+
+
+### In development
 - update reservation
 - delete reservation
 - private groups
