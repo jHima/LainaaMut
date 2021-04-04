@@ -17,7 +17,7 @@ import base.dao.VarausDao;
 import base.model.Tavara;
 import base.model.Varaus;
 
-public class TavaraSivu extends WebPage {
+public class TavaraSivu extends BasePage {
 
 	@SpringBean
 	private TavaraDao tavaraDao;
@@ -25,7 +25,7 @@ public class TavaraSivu extends WebPage {
 	private VarausDao varausDao;
 
 	public TavaraSivu(PageParameters parameters) {
-		add(new Header("header"));
+		//add(new Header("header"));
 		
 		String id = parameters.get("idTavara").toOptionalString();
 		Integer idTavara = Integer.valueOf(id);

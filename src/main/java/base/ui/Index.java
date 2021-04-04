@@ -20,12 +20,12 @@ import org.slf4j.LoggerFactory;
 import base.model.Tavara;
 import base.ui.session.MyAuthenticatedWebSession;
 
-public class Index extends WebPage {
+public class Index extends BasePage {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Index.class);
 
 	public Index() {
 
-		add(new Header("header"));
+		//add(new Header("header"));
 		//add(new Panel("userpanel"));
 
 		add(new Label("simpleLabel", "Tekstiä tässä"));

@@ -16,16 +16,16 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import base.dao.TavaraDao;
 import base.model.Tavara;
 
-public class Tavarat extends WebPage {
+public class Tavarat extends BasePage {
 	
 	@SpringBean
 	private TavaraDao dao;
 	
-	private Component header;
+	//private Component header;
 	
 	public Tavarat() {
 		
-		add(header = new Header("header"));
+		//add(header = new Header("header"));
 		
 		List<Tavara> tavarat = dao.findItems();
 		

@@ -22,7 +22,7 @@
 		<init-param>
 			<param-name>applicationClassName</param-name>
 			<param-value>
-				base.ui.HelloApplication
+				base.ui.Application
 			</param-value>
 		</init-param>
 	</filter>

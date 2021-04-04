@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 import base.ui.session.MyAuthenticatedWebSession;
 
 
-public class HelloApplication extends AuthenticatedWebApplication {
-	private static final Logger LOGGER = LoggerFactory.getLogger(HelloApplication.class);
+public class Application extends AuthenticatedWebApplication {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 	// This is the place to have application wide configurations
 	@Override
 	protected void init() {

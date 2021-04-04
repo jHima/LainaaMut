@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.apache.wicket.extensions.markup.html.form.DateTextField;
+import org.apache.wicket.feedback.FeedbackMessage;
+import org.apache.wicket.feedback.IFeedbackMessageFilter;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -24,6 +26,7 @@ import base.dao.KayttajaDao;
 import base.dao.TavaraDao;
 import base.dao.VarausDao;
 import base.model.Varaus;
+import base.ui.session.MyAuthenticatedWebSession;
 
 public class VarausForm extends Form {
 	
@@ -56,12 +59,15 @@ public class VarausForm extends Form {
 		
 		add(new FeedbackPanel("feedback"));
 
+
 	}
+	
 	
 
 	@Override
 	public final void onSubmit() {		
-		Kayttaja nyt = kayttajaDao.getKayttaja(1);
+		int id = MyAuthenticatedWebSession.get().getUserId();
+		Kayttaja nyt = kayttajaDao.getKayttaja(id);
 
 		
 		Varaus uusiVaraus = new Varaus();
@@ -70,12 +76,13 @@ public class VarausForm extends Form {
 		uusiVaraus.setPvm(paiva);
 		uusiVaraus.setTavara(tavara);
 		
-		setResponsePage(Varaukset.class);
+		
 		
 		if(dao.tavaranVarauksetPaivalle(tavara.getIdtavara(), paiva) == 0) {
 			dao.saveVaraus(uusiVaraus);
 			System.out.println("Varaus onnistui!!");
 			System.out.println((dao.tavaranVarauksetPaivalle(tavara.getIdtavara(), paiva)));
+			setResponsePage(Tavarat.class);
 		} else {
 			System.out.println("Tavara on jo varattu!!");
 			System.out.println((dao.tavaranVarauksetPaivalle(tavara.getIdtavara(), paiva)));

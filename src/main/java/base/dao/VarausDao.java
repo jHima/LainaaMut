@@ -118,5 +118,25 @@ public class VarausDao {
 		return kaikki.size();
 		
 	}
+	
+	public List<Varaus> kayttajanVaraukset(int id) {
+		List<Varaus> kaikki = new ArrayList<>();
+		try(Session session = sessionFactory.openSession()) {
+			
+			try {
+				String hql = "from Varaus where kayttajaid = :id order by pvm";
+				Query query = session.createQuery(hql);
+				query.setParameter("id", id);
+				kaikki.addAll(query.list());
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return kaikki;
+		
+	}
 
 }

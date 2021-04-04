@@ -14,7 +14,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import base.dao.VarausDao;
 import base.model.Varaus;
 
-public class Varaukset extends WebPage{
+public class Varaukset extends BasePage{
 	
 	@SpringBean
 	private VarausDao dao;
@@ -23,7 +23,7 @@ public class Varaukset extends WebPage{
 	
 	public Varaukset() {
 		
-		add(header = new Header("header"));
+		//add(header = new Header("header"));
 		
 		List<Varaus> varaukset = dao.findVaraukset();
 		OmaLista uusiLista = new OmaLista();

@@ -13,7 +13,7 @@ public class LisaaTavara extends WebPage {
 
 	public LisaaTavara(final PageParameters parameters) {
 
-		super(parameters);
+		super(parameters); //Miten basepagen saa toimimaan??
 
 		add(header = new Header("header"));
 

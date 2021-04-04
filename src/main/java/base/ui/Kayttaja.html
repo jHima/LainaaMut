@@ -10,21 +10,58 @@
 <body>
 
 	<div id="header" wicket:id="header">header</div>
-	
-	<h1>Omat tavarasi</h1>
 
+	<br>
+	<br>
 	
-		<h3>Täällä näet tallentamasi tavarat</h3>
 
-		<div wicket:id="kayttajanTavaratList" >
+
+	<h1>Omat sivut</h1>
+	
+	<h1 wicket:id="kayttaja"></h1>
+	
+	<input class="button" type="button" wicket:id="signOut"
+		value="Kirjaudu ulos">
+
+
+	<h3>Tallentamasi tavarat</h3>
+
+	<div wicket:id="kayttajanTavaratList">
 		<div class="card col-3">
-			<h4 class= "nimi"><span wicket:id="tavaraNimi">Nimi</span></h4>
-			<p><button wicket:id="tavaraSivu">Tavara</button></p>
+			<h4 class="nimi">
+				<span wicket:id="tavaraNimi">Nimi</span>
+			</h4>
+				<button wicket:id="tavaraSivu">Tavara</button>
 			
+
 		</div>
-		
-<!-- 		<input class="button" type="button" wicket:id="signOut" -->
-<!-- 		value="Kirjaudu ulos"> -->
+
 	</div>
+	
+	<br>
+	<br><br><br><br><br><br>
+	<div>
+	<h3>Tekemäsi varaukset</h3>
+	</div>
+	<div wicket:id="kayttajanVarauksetList">
+		<div class="card col-3">
+			<h4 class="nimi">
+				<span wicket:id="tavaraNimi">Nimi</span>
+			</h4>
+			<p>
+				Laina-alkaa: <span wicket:id="varausPvm">Nimi</span>
+				
+			</p>
+			<p>
+				Tavaran omistaja: 
+				<span wicket:id="kenenTavara">Nimi</span>
+			</p>
+
+		</div>
+
+	</div>
+
+	
+
 </body>
 </html>
