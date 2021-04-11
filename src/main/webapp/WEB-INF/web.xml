@@ -7,7 +7,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 
-	<display-name>SpringMVC</display-name>
+	<display-name>LainaaMut</display-name>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -15,7 +15,7 @@
 	</context-param>
 
 	<filter>
-		<filter-name>wicket.hello</filter-name>
+		<filter-name>wicket.lainaaMut</filter-name>
 		<filter-class>
 			org.apache.wicket.protocol.http.WicketFilter
 		</filter-class>
@@ -27,7 +27,7 @@
 		</init-param>
 	</filter>
 	<filter-mapping>
-		<filter-name>wicket.hello</filter-name>
+		<filter-name>wicket.lainaaMut</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 

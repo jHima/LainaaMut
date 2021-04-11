@@ -22,7 +22,7 @@ public class Application extends AuthenticatedWebApplication {
 		getCspSettings().blocking().disabled();
 		getDebugSettings().setDevelopmentUtilitiesEnabled(true);
 		
-		LOGGER.debug("Kirjotan tähän jotain :)");
+		LOGGER.debug("Wicketin asetukset on kunnossa");
 
 		
 		//mihin application viittaa??		

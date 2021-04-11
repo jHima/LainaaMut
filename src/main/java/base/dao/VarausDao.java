@@ -62,7 +62,7 @@ public class VarausDao {
 		try(Session session = sessionFactory.openSession()) {
 			
 			try {
-				String hql = "from Varaus where tavaraid = :id";
+				String hql = "from Varaus where tavaraid = :id order by pvm";
 				Query query = session.createQuery(hql);
 				query.setParameter("id", id);
 				kaikki.addAll(query.list());
@@ -82,7 +82,7 @@ public class VarausDao {
 		try(Session session = sessionFactory.openSession()) {
 			
 			try {
-				String hql = "from Varaus where tavaraid = :id and pvm > :pvm";
+				String hql = "from Varaus where tavaraid = :id and pvm > :pvm order by pvm";
 				Query query = session.createQuery(hql);
 				query.setParameter("id", id);
 				query.setParameter("pvm", new Date());
@@ -119,14 +119,16 @@ public class VarausDao {
 		
 	}
 	
-	public List<Varaus> kayttajanVaraukset(int id) {
+	public List<Varaus> kayttajanTulevatVaraukset(int id) {
 		List<Varaus> kaikki = new ArrayList<>();
 		try(Session session = sessionFactory.openSession()) {
 			
 			try {
-				String hql = "from Varaus where kayttajaid = :id order by pvm";
+				String hql = "from Varaus where kayttajaid = :id and pvm >= :pvm order by pvm";
 				Query query = session.createQuery(hql);
+				query.setParameter("pvm", new Date());
 				query.setParameter("id", id);
+				
 				kaikki.addAll(query.list());
 			
 			} catch(Exception e) {
@@ -137,6 +139,48 @@ public class VarausDao {
 		
 		return kaikki;
 		
+	}
+	
+	public List<Varaus> kayttajanMenneetVaraukset(int id) {
+		List<Varaus> kaikki = new ArrayList<>();
+		try(Session session = sessionFactory.openSession()) {
+			
+			try {
+				String hql = "from Varaus where kayttajaid = :id and pvm < :pvm order by pvm";
+				Query query = session.createQuery(hql);
+				query.setParameter("pvm", new Date());
+				query.setParameter("id", id);
+				
+				kaikki.addAll(query.list());
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return kaikki;
+		
+	}
+	
+	
+	public void deleteVaraus(int id) {
+
+		try (Session session = sessionFactory.openSession()) {
+			Transaction tx = session.beginTransaction();
+			try {
+				String hqlDelete = "delete Varaus where idvaraus = :idVaraus";
+				int deletedEntities = session.createQuery( hqlDelete )
+				        .setParameter( "idVaraus", id )
+				        .executeUpdate();
+						tx.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+				tx.rollback();
+			}
+			
+		}
+
 	}
 
 }
