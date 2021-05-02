@@ -10,22 +10,24 @@
 <body>
 
 
-		
 
-	<div id="header" wicket:id="header">header</div> 
+
+	<div id="header" wicket:id="header">header</div>
 	<h1>Listaus kaikista tavaroista</h1>
 
-	<h3>Tervetuloa varaamaan tavaroita.</h3>
+	<h3>Tervetuloa varaamaan tavaroita.</h3> <input class="button" type="submit" wicket:id="lisaaTavara"
+			value="Lisää tavara">
 
-	<div wicket:id="tavaratList">
-		<div class="card col-6">
-<!-- 		<span wicket:id="nro"> </span>  -->
-		<div class="tavaraNimi">
-		<h2 wicket:id="tavaraNimi">label</h2> </div>
-		<p wicket:id="tavaraKuvaus"></p>
-		<button wicket:id="tavaraSivu">Tavara</button>
-		
-			
+	<div class = "row" wicket:id="tavaratList">
+		<div class="card col-9">
+			<!-- 		<span wicket:id="nro"> </span>  -->
+			<div class="tavaraNimi">
+				<h2 wicket:id="tavaraNimi">label</h2>
+			</div>
+			<p wicket:id="tavaraKuvaus"></p>
+			<button wicket:id="tavaraSivu">Tavara</button>
+
+
 		</div>
 	</div>
 	<!-- 
@@ -33,13 +35,16 @@
 	-->
 	<br>
 	<br>
-	<input class="button" type="submit" wicket:id="lisaaTavara"
-		value="Lisää tavara">
-	<br />
-	<input class="button" type="submit" wicket:id="kaikkiVaraukset"
-		value="Kaikki varaukset">
-	<br />
+	<br>
+	<br>
 
+<!-- 	<div> -->
+		
+<!-- 		<input class="button" type="submit" wicket:id="lisaaTavara" -->
+<!-- 			value="Lisää tavara"> <br> <input class="button" -->
+<!-- 			type="submit" wicket:id="kaikkiVaraukset" value="Kaikki varaukset"> -->
+<!-- 		<br> -->
+<!-- 	</div> -->
 
 
 

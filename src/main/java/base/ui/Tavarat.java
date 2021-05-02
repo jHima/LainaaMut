@@ -46,7 +46,7 @@ public class Tavarat extends BasePage {
 		});
 		
 		add(new BookmarkablePageLink<>("lisaaTavara", LisaaTavara.class));
-		add(new BookmarkablePageLink<>("kaikkiVaraukset", Varaukset.class));
+		//add(new BookmarkablePageLink<>("kaikkiVaraukset", Varaukset.class));
 	}
 
 }

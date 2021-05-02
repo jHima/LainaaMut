@@ -7,33 +7,6 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 
-.oldcard {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: 5px;
-  text-align: center;
-  font-family: arial;
-  background-color: #E8E8E8;
-  
-  
-}
-
-.button {
-	border: none;
-	outline: 0;
-	padding: 12px;
-	color: white;
-	background-color: #000;
-	text-align: center;
-	cursor: pointer;
-	margin: 5px;
-	font-size: 18px;
-}
-
-.button:hover {
-  opacity: 0.7;
-}
-
 
 
 </style>
@@ -51,6 +24,8 @@
 	<h1>Omat sivut</h1>
 	
 	<h1 wicket:id="kayttaja"></h1>
+	
+<!-- 	<p wicket:id="lainoja"></p> -->
 	
 	<input class="button" type="button" wicket:id="signOut"
 		value="Kirjaudu ulos">
@@ -81,14 +56,14 @@
 				<span wicket:id="tavaraNimi">Nimi</span>
 			</h4>
 			<p>
-				Laina-alkaa: <span wicket:id="varausPvm">Nimi</span>
+				Laina-alkaa: <span wicket:id="varausPvm">Pvm</span>
 				
 			</p>
 			<p>
 				Tavaran omistaja: 
 				<span wicket:id="kenenTavara">Nimi</span>
 			</p>
-			<button wicket:id="poistaVaraus">Poista</button>
+			<button wicket:id="poistaVaraus">Peruuta</button>
 
 		</div>
 

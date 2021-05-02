@@ -52,7 +52,8 @@ public class VarausForm extends Form {
 		int tavaraId = t.getIdtavara();
 
 		add(new Label("tavaranNimi", t.getNimi()));
-		add(new Label("tavaraNro", t.getIdtavara()));
+		//add(new Label("tavaraNro", t.getIdtavara()));
+		add(new Label("tavaraOmistaja", "Tavaran omistaa: " + t.getKayttaja().getNimi()));
 
 		add(new TextField("lisatieto").setRequired(true));
 		add(new DateTextField("paiva", "yyyy-MM-dd").setRequired(true));

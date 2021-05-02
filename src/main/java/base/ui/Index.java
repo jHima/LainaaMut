@@ -28,7 +28,7 @@ public class Index extends BasePage {
 		//add(new Header("header"));
 		//add(new Panel("userpanel"));
 
-		add(new Label("simpleLabel", "Tekstiä tässä"));
+		add(new Label("simpleLabel", " Lainaa mut Tekstiä tässä"));
 
 		// add(new Label("simpleLabel"));
 

@@ -95,6 +95,26 @@ public class TavaraDao {
 
 	}
 	
+	public List<Tavara> findMuidenItems(int id) {
+		List<Tavara> kayttajanTavarat = new ArrayList<>();
+		try (Session session = sessionFactory.openSession()) {
+
+			try {
+				String hql = "from Tavara where kayttajaid != :id";
+				Query query = session.createQuery(hql);
+				query.setParameter("id", id);
+				kayttajanTavarat.addAll(query.list());
+
+
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+
+		return kayttajanTavarat;
+
+	}
 	
 
 	public void deleteItem(int id) {

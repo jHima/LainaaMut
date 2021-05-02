@@ -35,7 +35,8 @@ public class Kayttaja extends BasePage {
 
 		int id = MyAuthenticatedWebSession.get().getUserId();
 		add(new Label("kayttaja", "Hei " + kayttajaDao.getKayttaja(id).getNimi() + "!"));
-
+		//add(new Label("lainoja", "Sinulla on " + varausDao.kayttajanVaraukset(id) + " lainaa."));
+		LOGGER.debug("Onko lainauksia??");
 		final List<Tavara> kayttajanTavarat = tavaraDao.findKayttajanItems(id);
 
 		add(new ListView<Tavara>("kayttajanTavaratList", kayttajanTavarat) {

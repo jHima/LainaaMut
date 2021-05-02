@@ -182,5 +182,25 @@ public class VarausDao {
 		}
 
 	}
+	
+	public Integer kayttajanVaraukset(int id) {
+		int luku = 0;
+		try(Session session = sessionFactory.openSession()) {
+			
+			try {
+				String hql = "select count(*) from Varaus where kayttajaid = :id";
+				Query query = session.createQuery(hql);
+				query.setParameter("id", id);
+				luku = (int) query.getSingleResult();
+			
+			} catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return luku;
+		
+	}
 
 }

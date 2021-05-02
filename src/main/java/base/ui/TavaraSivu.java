@@ -2,6 +2,7 @@ package base.ui;
 
 import java.util.List;
 
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
@@ -17,6 +18,7 @@ import base.dao.VarausDao;
 import base.model.Tavara;
 import base.model.Varaus;
 
+@AuthorizeInstantiation("ADMIN")
 public class TavaraSivu extends BasePage {
 
 	@SpringBean
