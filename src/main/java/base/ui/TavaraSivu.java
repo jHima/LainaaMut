@@ -1,5 +1,7 @@
 package base.ui;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
@@ -12,6 +14,7 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.hibernate.type.DateType;
 
 import base.dao.TavaraDao;
 import base.dao.VarausDao;
@@ -67,8 +70,9 @@ public class TavaraSivu extends BasePage {
 
 			@Override
 			protected void populateItem(ListItem<Varaus> item) {
-				final Varaus varaus = item.getModelObject();
-				item.add(new Label("paiva", varaus.getPvm()));
+				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				final Varaus varaus = item.getModelObject();			
+				item.add(new Label("paiva", formatter.format(varaus.getPvm())));
 				item.add(new Label("lisatieto", varaus.getLisatieto()));
 				item.add(new Label("varaaja", varaus.getKayttaja().getNimi()));
 				

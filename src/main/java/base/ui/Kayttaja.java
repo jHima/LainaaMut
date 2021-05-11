@@ -60,7 +60,7 @@ public class Kayttaja extends BasePage {
 			protected void populateItem(ListItem<Varaus> item) {
 				final Varaus varaus = item.getModelObject();
 				item.add(new Label("tavaraNimi", varaus.getTavara().getNimi()));
-				item.add(new Label("varausPvm", varaus.getPvm()));
+				item.add(new Label("varausPvm", varaus.getLocalPvm()));
 				item.add(new Label("kenenTavara", varaus.getTavara().getKayttaja().getNimi()));
 				final Link<Void> poistaVaraus = new Link<Void>("poistaVaraus") {
 					public void onClick() {
@@ -81,7 +81,7 @@ public class Kayttaja extends BasePage {
 			protected void populateItem(ListItem<Varaus> item) {
 				final Varaus varaus = item.getModelObject();
 				item.add(new Label("tavaraNimi", varaus.getTavara().getNimi()));
-				item.add(new Label("varausPvm", varaus.getPvm()));
+				item.add(new Label("varausPvm", varaus.getLocalPvm()));
 				item.add(new Label("kenenTavara", varaus.getTavara().getKayttaja().getNimi()));
 				final Link<Void> arvioiVaraus = new Link<Void>("arvioiVaraus") {
 					public void onClick() {

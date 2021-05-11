@@ -12,7 +12,8 @@
 	<div id="header" wicket:id="header">header</div>
 	<h1>Valitsemasi oman tavaran tiedot</h1>
 
-	<h3>T‰‰ll‰ n‰et tiedot valitsemastasi tavarasta ja voit muokata tavarasi tietoja</h3>
+	<h3>T‰‰ll‰ n‰et tiedot valitsemastasi tavarasta ja voit muokata
+		tavarasi tietoja</h3>
 
 	<span wicket:id="tavaranNimi"> </span>
 	<br>
@@ -32,7 +33,7 @@
 
 
 			<p wicket:id="tavaranNimi"></p>
-<!-- 			<p wicket:id="tavaraNro"></p> -->
+			<!-- 			<p wicket:id="tavaraNro"></p> -->
 			<p wicket:id="tavaraOmistaja"></p>
 
 			<br>
@@ -42,8 +43,8 @@
 				type="text" id="lisatieto" />
 			<p>
 			<div wicket:id="feedback"></div>
-				<input class="button" type="submit" name="lisaaVaraus"
-					value="Tee varaus" />
+			<input class="button" type="submit" name="lisaaVaraus"
+				value="Tee varaus" />
 			</p>
 		</fieldset>
 	</form>
@@ -52,19 +53,31 @@
 	<br>
 
 	<div>
-		<h3>Tavaran tulevat varaukset:</h3>
+		<h3>Tavaran tulevat lainat:</h3>
 
-				<p wicket:id= "eiVarauksia"></p>
+		<p wicket:id="eiVarauksia"></p>
 
-		<div wicket:id="varauksetList">
-			<span wicket:id="paiva">paivam‰‰r‰</span> <span wicket:id="varaaja">varaaja</span>
-			<span wicket:id="lisatieto">lis‰tieto</span>
-		</div>
+				
+		<table>
+			<thead>
+				<tr>
+					<th>Ajankohta</th>
+					<th>Varaaja</th>
+					<th>Lis‰tieto</th>
+				</tr>
+			</thead>
+			<tr wicket:id="varauksetList">
+				<th wicket:id="paiva">paivam‰‰r‰</th>
+				<th wicket:id="varaaja">varaaja</th>
+				<th wicket:id="lisatieto">lis‰tieto</th>
+			</tr>
+		</table>
 	</div>
-	
+
 	<br>
 
-	<form id="muokkaaTavaraaForm" method="post" wicket:id="muokkaaTavaraaForm">
+	<form id="muokkaaTavaraaForm" method="post"
+		wicket:id="muokkaaTavaraaForm">
 		<fieldset>
 			<legend>Muokkaa</legend>
 			<p wicket:id="kuvaus"></p>
@@ -72,8 +85,7 @@
 				id="uusiKuvaus" />
 			<p>
 			<div wicket:id="feedback2"></div>
-				<input class="button" type="submit" name="muokkaa"
-					value="Muokkaa" />
+			<input class="button" type="submit" name="muokkaa" value="Muokkaa" />
 			</p>
 		</fieldset>
 	</form>

@@ -1,5 +1,8 @@
 package base.ui;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
@@ -73,8 +76,10 @@ public class MyItemPage extends BasePage {
 
 			@Override
 			protected void populateItem(ListItem<Varaus> item) {
-				final Varaus varaus = item.getModelObject();
-				item.add(new Label("paiva", varaus.getPvm()));
+				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				final Varaus varaus = item.getModelObject();		
+				LocalDate localDate = varaus.getLocalPvm();
+				item.add(new Label("paiva", varaus.getLocalPvm().minusDays(1)));
 				item.add(new Label("lisatieto", varaus.getLisatieto()));
 				item.add(new Label("varaaja", varaus.getKayttaja().getNimi()));
 				

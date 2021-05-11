@@ -15,7 +15,7 @@
 	<h3>Täällä näet tiedot valitsemastasi tavarasta ja voit tehdä
 		varauksia</h3>
 
-	<h2 wicket:id="tavaranNimi"> </h2>
+	<h2 wicket:id="tavaranNimi"></h2>
 	<br>
 
 	<br>
@@ -31,7 +31,7 @@
 
 
 			<p wicket:id="tavaranNimi"></p>
-<!-- 			<p wicket:id="tavaraNro"></p> -->
+			<!-- 			<p wicket:id="tavaraNro"></p> -->
 			<p wicket:id="tavaraOmistaja"></p>
 
 			<br>
@@ -41,9 +41,9 @@
 				type="text" id="lisatieto" />
 			<p>
 			<div wicket:id="feedback"></div>
-			
-				<input class="button" type="submit" name="lisaaVaraus"
-					value="Tee varaus" />
+
+			<input class="button" type="submit" name="lisaaVaraus"
+				value="Tee varaus" />
 			</p>
 		</fieldset>
 	</form>
@@ -52,19 +52,29 @@
 	<br>
 
 	<div>
-		<h3>Tavaran tulevat varaukset:</h3>
+		<h3>Tavaran tulevat lainat:</h3>
 
-				<p wicket:id= "eiVarauksia"></p>
+		<p wicket:id="eiVarauksia"></p>
 
-		<div wicket:id="varauksetList">
-			<span wicket:id="paiva">paivamäärä</span> <span wicket:id="varaaja">varaaja</span>
-			<span wicket:id="lisatieto">lisätieto</span>
-		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Ajankohta</th>
+					<th>Varaaja</th>
+					<th>Lisätieto</th>
+				</tr>
+			</thead>
+			<tr wicket:id="varauksetList">
+				<th wicket:id="paiva">paivamäärä</th>
+				<th wicket:id="varaaja">varaaja</th>
+				<th wicket:id="lisatieto">lisätieto</th>
+			</tr>
+		</table>
 	</div>
-	
+
 	<br>
 
-	
+
 
 	<input class="button" type="submit" wicket:id="kaikkiVaraukset"
 		value="Kaikki varaukset">

@@ -1,5 +1,9 @@
 package base.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -58,6 +62,10 @@ public class Varaus {
 
 	public Date getPvm() {
 		return pvm;
+	}
+	
+	public LocalDate getLocalPvm() {
+		return pvm.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 	public void setPvm(Date pvm) {
